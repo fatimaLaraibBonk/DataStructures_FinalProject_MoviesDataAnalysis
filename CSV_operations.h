@@ -6,12 +6,33 @@
 #include <fstream>
 #include <string>
 #include <stdexcept>
+
+
 using namespace std;
 
-class reader{
-    private:
+struct movienode {
+    string fields[28];
+    movienode* next;
 
-    public:
+    movienode() {
+        next = nullptr;
+    }
+};
+
+class movielist {
+public:
+    movienode* head;
+    movielist() {
+        head = nullptr;
+    }
+    void insert(movienode* node);
+};
+
+
+class reader {
+public:
     void read_file();
-    
+
+private:
+    int split(const string& line, string fields[]);
 };
