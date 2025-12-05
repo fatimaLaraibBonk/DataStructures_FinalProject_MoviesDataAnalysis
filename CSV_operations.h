@@ -6,33 +6,19 @@
 #include <fstream>
 #include <string>
 #include <stdexcept>
-
-
+#include "hash.h"
+#include "movie_node.h"
 using namespace std;
-
-struct movienode {
-    string fields[28];
-    movienode* next;
-
-    movienode() {
-        next = nullptr;
-    }
-};
-
-class movielist {
-public:
-    movienode* head;
-    movielist() {
-        head = nullptr;
-    }
-    void insert(movienode* node);
-};
 
 
 class reader {
 public:
+    moviesTree moviesT;
+    hashTableForActors hashTabA;
+    int countForRecords;
     void read_file();
-
-private:
     int split(const string& line, string fields[]);
+    reader() {
+        countForRecords = 0;
+    }
 };
