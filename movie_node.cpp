@@ -7,6 +7,7 @@ movieNode::movieNode(string name, string directorName, linkedList actorsList, li
     this->genresList=genresList;
     this->rating=rating;
     this->releaseYear=releaseYear;
+    this->height = 0;
     this->left=nullptr;
     this->right=nullptr;
 }
